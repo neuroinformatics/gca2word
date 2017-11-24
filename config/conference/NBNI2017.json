@@ -1,0 +1,32 @@
+{
+	"short": "NBNI2017",
+	"title": "NBNI 2017",
+	"doi": null,
+	"conference": {
+		"title": "17th China-Japan-Korea Joint Workshop\non Neurobiology and Neuroinformatics"
+	},
+	"session": [
+		{
+			"short": "I",
+			"title": "Invited Talk",
+			"description": null
+		},
+		{
+			"short": "P",
+			"title": "Poster",
+			"description": null
+		}
+	],
+	"publicationDate": {
+		"month": "November",
+		"year": "2017"
+	},
+	"editor": [
+		"Tomoki Fukai",
+		"Yoko Yamaguchi"
+	],
+	"publisher": {
+		"name": "Neuroinformatics Japan Center, RIKEN Brain Science Institute",
+		"address": "2-1, Hirosawa, Wako, Saitama 351-0198, Japan"
+	}
+}

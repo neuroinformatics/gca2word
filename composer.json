@@ -1,0 +1,12 @@
+{
+    "autoload": {
+        "psr-4": {
+            "NIJC\\": "lib/"
+        }
+    },
+
+    "require": {
+        "phpoffice/phpword": "dev-develop",
+        "dompdf/dompdf": "^0.8.1"
+    }
+}

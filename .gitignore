@@ -1,0 +1,9 @@
+# output file
+*.docx
+
+# php-cs-fixer
+.php_cs.cache
+
+# composer #
+vendor/*
+!.gitkeep

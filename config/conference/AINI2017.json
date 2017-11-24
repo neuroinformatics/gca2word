@@ -1,0 +1,52 @@
+{
+	"short": "AINI2017",
+	"title": "Advances in Neuroinformatics V",
+	"doi": "10.19431/aini2017",
+	"conference": {
+		"title": "5th INCF Japan Node International Workshop\nAdvances in Neuroinformatics 2017"
+	},
+	"session": [
+		{
+			"short": "KL",
+			"title": "Keynote Lectures",
+			"description": null
+		},
+		{
+			"short": "OSI",
+			"title": "Organized Session I",
+			"description": "The future of neuroinformatics education"
+		},
+		{
+			"short": "OSII",
+			"title": "Organized Session II",
+			"description": "Selected papers"
+		},
+		{
+			"short": "OSIII",
+			"title": "Organized Session III",
+			"description": "Dynamics of genes expressed in neurons and brain, their associated phenotypes and potential links to neuroinformatics"
+		},
+		{
+			"short": "OSIV",
+			"title": "Organized Session IV",
+			"description": "Brain signal: Measurement, data analysis and modeling"
+		},
+		{
+			"short": "PS",
+			"title": "Poster Session",
+			"description": null
+		}
+	],
+	"publicationDate": {
+		"month": "November",
+		"year": "2017"
+	},
+	"editor": [
+		"Ryoji Suzuki",
+		"Yoko Yamaguchi"
+	],
+	"publisher": {
+		"name": "Neuroinformatics Japan Center, RIKEN Brain Science Institute",
+		"address": "2-1, Hirosawa, Wako, Saitama 351-0198, Japan"
+	}
+}
