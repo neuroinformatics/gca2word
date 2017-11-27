@@ -865,7 +865,8 @@ class AbstractsWriter
             }
             $run->addText($this->_sanitizeText($text), self::FS_TITLEPAGE_CONFERENCE_TITLE);
         }
-        $section->addText(self::HL_ABSTRACTS, self::FS_TITLEPAGE_CONFERENCE_TITLE, self::PS_TITLEPAGE_CONFERENCE_TITLE);
+        $run->addTextBreak();
+        $run->addText(self::HL_ABSTRACTS, self::FS_TITLEPAGE_CONFERENCE_TITLE);
         // DOI
         $doi = $this->_getBookDOI();
         if ($doi) {
@@ -1193,16 +1194,19 @@ class AbstractsWriter
      */
     protected function _addRunTextWithMath($run, $text, $style)
     {
-        $strArr = preg_split('/(\$.*\$)/Uu', $text, -1, PREG_SPLIT_NO_EMPTY | PREG_SPLIT_DELIM_CAPTURE);
+        $strArr = preg_split('/(\$.+\$)/Uu', $text, -1, PREG_SPLIT_NO_EMPTY | PREG_SPLIT_DELIM_CAPTURE);
         foreach ($strArr as $str) {
+            $isNewLine = false;
             $mathStr = '';
-            if (1 < strlen($str) && '$' === substr($str, 0, 1) && '$' === substr($str, -1, 1)) {
-                $mathStr = substr($str, 1, -1);
-                if ('' === $mathStr) {
-                    continue;
+            if (preg_match('/^\$(.+)\$$/', $str, $matches)) {
+                $mathStr = $matches[1];
+                if (preg_match('/^\$(.*)\$$/', $mathStr, $matches)) {
+                    $mathStr = $matches[1];
+                    $isNewLine = true;
                 }
             }
             if ('' !== $mathStr) {
+                $mathStr = preg_replace_callback('/textbf{(.*)}/Uu', function($m) { return 'textbf{'.str_replace(' ', '\ ', $m[1]).'}'; }, $mathStr);
                 $this->_printInfo(' >> Math: '.$mathStr);
                 $imagePath = $this->mTexvc->createImage($mathStr);
                 if ('' === $imagePath) {
@@ -1219,10 +1223,16 @@ class AbstractsWriter
                 list($width, $height) = $imageSize;
                 $widthMm = $width / self::FIGURE_DPI * 25.4 * $ratio;
                 $heightMm = $height / self::FIGURE_DPI * 25.4 * $ratio;
+                if ($isNewLine) {
+                    $run->addTextBreak();
+                }
                 $img = $run->addImage($imagePath2, [
                     'width' => PhpWord\Shared\Converter::cmToPoint($widthMm / 10.0),
                     'height' => PhpWord\Shared\Converter::cmToPoint($heightMm / 10.0),
                 ]);
+                if ($isNewLine) {
+                    $run->addTextBreak();
+                }
             } else {
                 $run->addText($str, $style);
             }
