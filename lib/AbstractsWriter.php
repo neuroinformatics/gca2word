@@ -1110,6 +1110,9 @@ class AbstractsWriter
         if (true) {
             $text .= $this->_sanitizeText($this->mConference['name']);
             $text .= '. ';
+            if (isset($abstract['doi'])) {
+                $text .= self::HL_DOI.':'.$this->_sanitizeText($abstract['doi']);
+            }
         } else {
             // aini2016 style.
             $text .= $this->_sanitizeText($this->_getBookTitle()).'. ';
@@ -1206,7 +1209,7 @@ class AbstractsWriter
                 }
             }
             if ('' !== $mathStr) {
-                $mathStr = preg_replace_callback('/textbf{(.*)}/Uu', function($m) { return 'textbf{'.str_replace(' ', '\ ', $m[1]).'}'; }, $mathStr);
+                $mathStr = preg_replace_callback('/textbf{(.*)}/Uu', function ($m) { return 'textbf{'.str_replace(' ', '\ ', $m[1]).'}'; }, $mathStr);
                 $this->_printInfo(' >> Math: '.$mathStr);
                 $imagePath = $this->mTexvc->createImage($mathStr);
                 if ('' === $imagePath) {
