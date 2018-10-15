@@ -2,7 +2,7 @@
 	"host": "https://abstracts.neuroinf.jp/",
 	"conference": "AINI2017",
 	"auth": {
-		"user": "admin@nijc.brain.riken.jp",
+		"user": "admin@ni.riken.jp",
 		"password": "secret"
 	},
 	"output": "./abstracts.docx"
