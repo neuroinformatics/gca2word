@@ -43,6 +43,7 @@ class AbstractsWriter
     const FS_HEADER = 'FS_Header';
     const FS_FOOTER = 'FS_Footer';
     const FS_TOC_TITLE = 'FS_TOC_Title';
+    const FS_ARTICLE_TITLE = 'FS_Article_Title';
     const FS_ARTICLE_AUTHOR = 'FS_Article_Author';
     const FS_ARTICLE_AUTHOR_SUPER = 'FS_Article_AuthorSuper';
     const FS_ARTICLE_AFFILIATION = 'FS_Article_Affiliation';
@@ -75,6 +76,7 @@ class AbstractsWriter
     const PS_HEADER = 'PS_Header';
     const PS_FOOTER = 'PS_Footer';
     const PS_TOC_TITLE = 'PS_TOC_Title';
+    const PS_ARTICLE_TITLE = 'PS_Article_Title';
     const PS_ARTICLE_AUTHOR = 'PS_Article_Author';
     const PS_ARTICLE_AFFILIATION = 'PS_Article_Affiliation';
     const PS_ARTICLE_EMAIL = 'PS_Article_Email';
@@ -491,6 +493,7 @@ class AbstractsWriter
                 'size' => 18,
                 'bold' => true,
             ],
+            self::FS_ARTICLE_TITLE => $this->mTitleStyles[self::TS_ARTICLE_TITLE][0],
             self::FS_ARTICLE_AUTHOR => [
                 'size' => 10.5,
                 'bold' => true,
@@ -612,6 +615,7 @@ class AbstractsWriter
                    'after' => PhpWord\Shared\Converter::pointToTwip(10),
                 ],
             ],
+            self::PS_ARTICLE_TITLE => $this->mTitleStyles[self::TS_ARTICLE_TITLE][1],
             self::PS_ARTICLE_AUTHOR => [
                 'alignment' => PhpWord\SimpleType\Jc::CENTER,
                 'space' => [
@@ -914,6 +918,11 @@ class AbstractsWriter
     {
         // Title
         $title = $this->_sanitizeText($abstract['title']);
+        if (preg_match('/\$(.+)\$/', $title)) {
+            $run = new PhpWord\Element\TextRun(self::PS_ARTICLE_TITLE);
+            $this->_addRunTextWithMath($run, $title, self::FS_ARTICLE_TITLE);
+            $title = $run;
+        }
         $section->addTitle($title, self::TS_ARTICLE_TITLE);
         // Authors
         $run = $section->addTextRun(self::PS_ARTICLE_AUTHOR);
@@ -1082,7 +1091,7 @@ class AbstractsWriter
         // author short name
         $authorShortNames = [];
         foreach ($abstract['authors'] as $authorIdx => $author) {
-            $firstName = isset($author['firstName']) ? $this->_sanitizeText($author['firstName']) : '';
+            $firstName = isset($author['firstName']) ? trim($this->_sanitizeText($author['firstName']), '*') : '';
             $middleName = isset($author['middleName']) ? $this->_sanitizeText($author['middleName']) : '';
             $lastName = isset($author['lastName']) ? $this->_sanitizeText($author['lastName']) : '';
             $shortName = $lastName;
