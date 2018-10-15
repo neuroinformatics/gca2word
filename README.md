@@ -2,11 +2,10 @@
 
 Create MS-Word abstracts book from GCA-Web online abstracts
 
-## dependencies
-- texvc
-
 ## prepare
-- add extra metadata file CONFERENCE.json to config/conference/
+- install [texvc](https://www.mediawiki.org/wiki/Texvc) command.
+- run 'composer install' command.
+- write metadata file CONFERENCE.json and put to config/conference/
 - modify default connection settings config/default.json if needed.
   (it can be override by command line parameter)
 
