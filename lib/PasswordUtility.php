@@ -63,7 +63,7 @@ class PasswordUtility
      */
     protected static function _ttyInput($message)
     {
-        echo $message;
+        fwrite(STDERR, $message);
         system('stty -echo');
         $ret = trim(fgets(STDIN));
         system('stty echo');
