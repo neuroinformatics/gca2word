@@ -27,6 +27,7 @@ class AbstractsWriter
     const HL_FIGURE_CAPTION = 'Figure';
     const HL_ACKNOWLEDGEMENTS = 'Acknowledgements';
     const HL_REFERENCES = 'References';
+    const HL_TOPIC = 'Topic';
     const HL_CITATION = 'Citation';
     const HL_COPYRIGHT = 'Copyright';
     const HL_EDITED_BY = 'Edited by';
@@ -57,6 +58,8 @@ class AbstractsWriter
     const FS_ARTICLE_ACKNOWLEDGEMENTS = 'FS_Article_Acknowlegedments';
     const FS_ARTICLE_REFERENCES_HEADING = 'FS_Article_ReferencesHeading';
     const FS_ARTICLE_REFERENCES = 'FS_Article_References';
+    const FS_ARTICLE_TOPIC_HEADING = 'FS_Article_TopicHeading';
+    const FS_ARTICLE_TOPIC = 'FS_Article_Topic';
     const FS_ARTICLE_CITATION_HEADING = 'FS_Article_CitationHeading';
     const FS_ARTICLE_CITATION = 'FS_Article_Citation';
     const FS_ARTICLE_COPYRIGHT_HEADING = 'FS_Article_CopyrightHeading';
@@ -89,6 +92,7 @@ class AbstractsWriter
     const PS_ARTICLE_ACKNOWLEDGEMENTS = 'PS_Article_Acknowlegedments';
     const PS_ARTICLE_REFERENCES_HEADING = 'PS_Article_ReferencesHeading';
     const PS_ARTICLE_REFERENCES = 'PS_Article_References';
+    const PS_ARTICLE_TOPIC = 'PS_Article_Topic';
     const PS_ARTICLE_CITATION = 'PS_Article_Citation';
     const PS_ARTICLE_COPYRIGHT = 'PS_Article_Copyright';
     const PS_COLOPHON_BOOK_TITLE = 'PS_Colophon_BookTitle';
@@ -537,6 +541,11 @@ class AbstractsWriter
             ],
             self::FS_ARTICLE_REFERENCES => [
             ],
+            self::FS_ARTICLE_TOPIC_HEADING => [
+                'bold' => true,
+            ],
+            self::FS_ARTICLE_TOPIC => [
+            ],
             self::FS_ARTICLE_CITATION_HEADING => [
                 'bold' => true,
             ],
@@ -706,6 +715,13 @@ class AbstractsWriter
                 'alignment' => PhpWord\SimpleType\Jc::BOTH,
                 'space' => [
                     'before' => PhpWord\Shared\Converter::pointToTwip(1),
+                    'after' => PhpWord\Shared\Converter::pointToTwip(1),
+                ],
+            ],
+            self::PS_ARTICLE_TOPIC => [
+                'alignment' => PhpWord\SimpleType\Jc::BOTH,
+                'space' => [
+                    'before' => PhpWord\Shared\Converter::pointToTwip(10),
                     'after' => PhpWord\Shared\Converter::pointToTwip(1),
                 ],
             ],
@@ -1087,6 +1103,14 @@ class AbstractsWriter
                 }
                 $section->addListItem($text, 0, self::FS_ARTICLE_REFERENCES, $name, self::PS_ARTICLE_REFERENCES);
             }
+        }
+        // Topic
+        if (false) {
+            $run = $section->addTextRun(self::PS_ARTICLE_TOPIC);
+            $heading = self::HL_TOPIC.': ';
+            $run->addText($heading, self::FS_ARTICLE_TOPIC_HEADING);
+            $topics = $abstract['topic'];
+            $run->addText($topics, self::FS_ARTICLE_TOPIC);
         }
         // author short name
         $authorShortNames = [];
