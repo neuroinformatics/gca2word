@@ -3,7 +3,11 @@
 
 require_once __DIR__.'/vendor/autoload.php';
 
-$configJsonPath = __DIR__.'/config/default.json';
+$configPath = __DIR__.'/config';
+$configJsonPath = $configPath.'/custom.json';
+if (!file_exists($configJsonPath)) {
+    $configJsonPath = $configPath.'/default.json';
+}
 
 if (!file_exists($configJsonPath)) {
     die('Fatal Error: config json not found'.PHP_EOL);
