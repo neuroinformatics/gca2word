@@ -6,7 +6,7 @@
     },
 
     "require": {
-        "phpoffice/phpword": "dev-develop",
-        "dompdf/dompdf": "^1.2.1"
+        "phpoffice/phpword": "^0.18.3",
+        "dompdf/dompdf": "^1.2"
     }
 }
