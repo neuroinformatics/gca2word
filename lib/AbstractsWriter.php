@@ -249,13 +249,17 @@ class AbstractsWriter
         $section = $this->_addSection($phpword);
         $this->_addHeader($section);
         $this->_addFooter($section);
-        $this->_printInfo('Table of Contents');
-        $this->_addTableOfContentsPage($section);
+        // Recent version of PhpWord doesn't support image contained title for the TOC output.
+        // $this->_printInfo('Table of Contents');
+        // $this->_addTableOfContentsPage($section);
         $numArticles = 0;
         $sessionTypeLast = '';
         foreach ($this->mAbstracts as $abstract) {
+            if ($abstract['state'] !== 'Accepted') {
+                continue;
+            }
             ++$numArticles;
-            $sessionType = $abstract['abstrTypes'][0]['short'];
+            $sessionType = $abstract['abstrTypes'][0]['short'] ?? '';
             if ($sessionType !== $sessionTypeLast) {
                 $sessionTitle = $this->_getSessionTitle($sessionType);
                 $sessionDescription = $this->_getSessionDescription($sessionType);
