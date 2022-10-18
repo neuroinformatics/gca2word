@@ -220,7 +220,10 @@ class AbstractsWriter
         }
         $bjsonPath = dirname(__DIR__).'/config/conference/'.$this->mConference['short'].'.json';
         if (!file_exists($bjsonPath)) {
-            die('Fatal Error: book json file not found: '.$bjsonPath.PHP_EOL);
+            $bjsonPath = dirname(__DIR__).'/config/conference/default.json';
+            if (!file_exists($bjsonPath)) {
+                die('Fatal Error: book json file not found: '.$bjsonPath.PHP_EOL);
+            }
         }
         $bjson = file_get_contents($bjsonPath);
         $this->mBook = json_decode($bjson, true);

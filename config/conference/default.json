@@ -1,0 +1,21 @@
+{
+	"short": "UNKNOWN",
+	"title": "Unknown Conference",
+	"doi": null,
+	"conference": {
+		"title": "Unknown Conference"
+	},
+	"session": [],
+	"publicationDate": {
+		"month": "October",
+		"year": "2022"
+	},
+	"editor": [
+		"Name of Editor1",
+		"Name of Editor2"
+	],
+	"publisher": {
+		"name": "Neuroinformatics Unit, RIKEN Center for Brain Science",
+		"address": "2-1, Hirosawa, Wako, Saitama 351-0198, Japan"
+	}
+}
