@@ -21,3 +21,9 @@ Options:
   -p                    input password from command line
   -c CONFERENCE         target conference short name (default "AINI2017")
   -o OUTPUTFILE         output file name (default "abstract.docx")
+```
+
+## dokcer
+```
+docker run -it --rm -v $(pwd)/data:/data orrisroot/gca2word -c [CONFERENCE] -u [EMAIL] -p -o /data/abstracts.docx
+```
