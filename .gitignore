@@ -6,6 +6,7 @@ config/custom.json
 
 # php-cs-fixer
 .php_cs.cache
+.php-cs-fixer.cache
 
 # composer #
 vendor/*

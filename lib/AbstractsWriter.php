@@ -10,99 +10,99 @@ use PhpOffice\PhpWord;
 class AbstractsWriter
 {
     // non-break space (UTF-8)
-    const NBSP = "\xc2\xa0";
+    public const NBSP = "\xc2\xa0";
     // copyright sign (UTF-8)
-    const COPYRIGHT_SIGN = "\xc2\xa9";
+    public const COPYRIGHT_SIGN = "\xc2\xa9";
     // figure dpi
-    const FIGURE_DPI = 96;
+    public const FIGURE_DPI = 96;
     // font size of texvc generated image.
-    const TEXVC_FONT_SIZE = 14;
+    public const TEXVC_FONT_SIZE = 14;
     // font
-    const FONT_SANS = 'Calibri';
-    const FONT_SANS_SERIF = 'Cambria';
+    public const FONT_SANS = 'Calibri';
+    public const FONT_SANS_SERIF = 'Cambria';
     // heading labes
-    const HL_ABSTRACTS = 'Abstracts';
-    const HL_DOI = 'doi';
-    const HL_TOC = 'Table of Contents';
-    const HL_FIGURE_CAPTION = 'Figure';
-    const HL_ACKNOWLEDGEMENTS = 'Acknowledgements';
-    const HL_REFERENCES = 'References';
-    const HL_TOPIC = 'Topic';
-    const HL_CITATION = 'Citation';
-    const HL_COPYRIGHT = 'Copyright';
-    const HL_EDITED_BY = 'Edited by';
-    const HL_PUBLISHED_BY = 'Published by';
+    public const HL_ABSTRACTS = 'Abstracts';
+    public const HL_DOI = 'doi';
+    public const HL_TOC = 'Table of Contents';
+    public const HL_FIGURE_CAPTION = 'Figure';
+    public const HL_ACKNOWLEDGEMENTS = 'Acknowledgements';
+    public const HL_REFERENCES = 'References';
+    public const HL_TOPIC = 'Topic';
+    public const HL_CITATION = 'Citation';
+    public const HL_COPYRIGHT = 'Copyright';
+    public const HL_EDITED_BY = 'Edited by';
+    public const HL_PUBLISHED_BY = 'Published by';
     // title style depth.
-    const TS_SESSION_TITLE = 1;
-    const TS_ARTICLE_TITLE = 2;
+    public const TS_SESSION_TITLE = 1;
+    public const TS_ARTICLE_TITLE = 2;
     // numbering style name.
-    const NS_ARTICLE_REFERENCES = 'NS_Article_References';
+    public const NS_ARTICLE_REFERENCES = 'NS_Article_References';
     // font style name.
-    const FS_TITLEPAGE_BOOK_TITLE = 'FS_TitlePage_BookTitle';
-    const FS_TITLEPAGE_BOOK_DOI = 'FS_TitlePage_BookDOI';
-    const FS_TITLEPAGE_CONFERENCE_TITLE = 'FS_TitlePage_ConferenceTitle';
-    const FS_HEADER = 'FS_Header';
-    const FS_FOOTER = 'FS_Footer';
-    const FS_TOC_TITLE = 'FS_TOC_Title';
-    const FS_ARTICLE_TITLE = 'FS_Article_Title';
-    const FS_ARTICLE_AUTHOR = 'FS_Article_Author';
-    const FS_ARTICLE_AUTHOR_SUPER = 'FS_Article_AuthorSuper';
-    const FS_ARTICLE_AFFILIATION = 'FS_Article_Affiliation';
-    const FS_ARTICLE_AFFILIATION_SUPER = 'FS_Article_AffiliationSuper';
-    const FS_ARTICLE_EMAIL = 'FS_Article_Email';
-    const FS_ARTICLE_DOI = 'FS_Article_DOI';
-    const FS_ARTICLE_ABSTRACT = 'FS_Article_Abstract';
-    const FS_ARTICLE_FIGURE_CAPTION_HEADING = 'FS_Article_FigureCaptionHeading';
-    const FS_ARTICLE_FIGURE_CAPTION = 'FS_Article_FigureCaption';
-    const FS_ARTICLE_ACKNOWLEDGEMENTS_HEADING = 'FS_Article_AcknowlegedmentsHeading';
-    const FS_ARTICLE_ACKNOWLEDGEMENTS = 'FS_Article_Acknowlegedments';
-    const FS_ARTICLE_REFERENCES_HEADING = 'FS_Article_ReferencesHeading';
-    const FS_ARTICLE_REFERENCES = 'FS_Article_References';
-    const FS_ARTICLE_TOPIC_HEADING = 'FS_Article_TopicHeading';
-    const FS_ARTICLE_TOPIC = 'FS_Article_Topic';
-    const FS_ARTICLE_CITATION_HEADING = 'FS_Article_CitationHeading';
-    const FS_ARTICLE_CITATION = 'FS_Article_Citation';
-    const FS_ARTICLE_COPYRIGHT_HEADING = 'FS_Article_CopyrightHeading';
-    const FS_ARTICLE_COPYRIGHT = 'FS_Article_Copyright';
-    const FS_COLOPHON_BOOK_TITLE = 'FS_Colophon_BookTitle';
-    const FS_COLOPHON_CONFERENCE_TITLE = 'FS_Colophon_ConferenceTitle';
-    const FS_COLOPHON_PUBLICATION_DATE = 'FS_Colophon_PublicationDate';
-    const FS_COLOPHON_EDITOR_HEADING = 'FS_Colophon_EditorHeading';
-    const FS_COLOPHON_EDITOR = 'FS_Colophon_Editor';
-    const FS_COLOPHON_PUBLISHER_HEADING = 'FS_Colophon_PublisherHeading';
-    const FS_COLOPHON_PUBLISHER = 'FS_Colophon_Publisher';
-    const FS_COLOPHON_COPYRIGHT = 'FS_Colophon_Copyright';
+    public const FS_TITLEPAGE_BOOK_TITLE = 'FS_TitlePage_BookTitle';
+    public const FS_TITLEPAGE_BOOK_DOI = 'FS_TitlePage_BookDOI';
+    public const FS_TITLEPAGE_CONFERENCE_TITLE = 'FS_TitlePage_ConferenceTitle';
+    public const FS_HEADER = 'FS_Header';
+    public const FS_FOOTER = 'FS_Footer';
+    public const FS_TOC_TITLE = 'FS_TOC_Title';
+    public const FS_ARTICLE_TITLE = 'FS_Article_Title';
+    public const FS_ARTICLE_AUTHOR = 'FS_Article_Author';
+    public const FS_ARTICLE_AUTHOR_SUPER = 'FS_Article_AuthorSuper';
+    public const FS_ARTICLE_AFFILIATION = 'FS_Article_Affiliation';
+    public const FS_ARTICLE_AFFILIATION_SUPER = 'FS_Article_AffiliationSuper';
+    public const FS_ARTICLE_EMAIL = 'FS_Article_Email';
+    public const FS_ARTICLE_DOI = 'FS_Article_DOI';
+    public const FS_ARTICLE_ABSTRACT = 'FS_Article_Abstract';
+    public const FS_ARTICLE_FIGURE_CAPTION_HEADING = 'FS_Article_FigureCaptionHeading';
+    public const FS_ARTICLE_FIGURE_CAPTION = 'FS_Article_FigureCaption';
+    public const FS_ARTICLE_ACKNOWLEDGEMENTS_HEADING = 'FS_Article_AcknowlegedmentsHeading';
+    public const FS_ARTICLE_ACKNOWLEDGEMENTS = 'FS_Article_Acknowlegedments';
+    public const FS_ARTICLE_REFERENCES_HEADING = 'FS_Article_ReferencesHeading';
+    public const FS_ARTICLE_REFERENCES = 'FS_Article_References';
+    public const FS_ARTICLE_TOPIC_HEADING = 'FS_Article_TopicHeading';
+    public const FS_ARTICLE_TOPIC = 'FS_Article_Topic';
+    public const FS_ARTICLE_CITATION_HEADING = 'FS_Article_CitationHeading';
+    public const FS_ARTICLE_CITATION = 'FS_Article_Citation';
+    public const FS_ARTICLE_COPYRIGHT_HEADING = 'FS_Article_CopyrightHeading';
+    public const FS_ARTICLE_COPYRIGHT = 'FS_Article_Copyright';
+    public const FS_COLOPHON_BOOK_TITLE = 'FS_Colophon_BookTitle';
+    public const FS_COLOPHON_CONFERENCE_TITLE = 'FS_Colophon_ConferenceTitle';
+    public const FS_COLOPHON_PUBLICATION_DATE = 'FS_Colophon_PublicationDate';
+    public const FS_COLOPHON_EDITOR_HEADING = 'FS_Colophon_EditorHeading';
+    public const FS_COLOPHON_EDITOR = 'FS_Colophon_Editor';
+    public const FS_COLOPHON_PUBLISHER_HEADING = 'FS_Colophon_PublisherHeading';
+    public const FS_COLOPHON_PUBLISHER = 'FS_Colophon_Publisher';
+    public const FS_COLOPHON_COPYRIGHT = 'FS_Colophon_Copyright';
     // paragraph style name.
-    const PS_TITLEPAGE_BOOK_TITLE = 'PS_TitlePage_BookTitle';
-    const PS_TITLEPAGE_BOOK_DOI = 'PS_TitlePage_BookDOI';
-    const PS_TITLEPAGE_CONFERENCE_TITLE = 'PS_TitlePage_ConferenceTitle';
-    const PS_HEADER = 'PS_Header';
-    const PS_FOOTER = 'PS_Footer';
-    const PS_TOC_TITLE = 'PS_TOC_Title';
-    const PS_ARTICLE_TITLE = 'PS_Article_Title';
-    const PS_ARTICLE_AUTHOR = 'PS_Article_Author';
-    const PS_ARTICLE_AFFILIATION = 'PS_Article_Affiliation';
-    const PS_ARTICLE_EMAIL = 'PS_Article_Email';
-    const PS_ARTICLE_DOI = 'PS_Article_DOI';
-    const PS_ARTICLE_ABSTRACT = 'PS_Article_Abstract';
-    const PS_ARTICLE_ABSTRACT_FOLLOW = 'PS_Article_AbstractFollow';
-    const PS_ARTICLE_FIGURE = 'PS_Article_Figure';
-    const PS_ARTICLE_FIGURE_CAPTION = 'PS_Article_FigureCaption';
-    const PS_ARTICLE_ACKNOWLEDGEMENTS_HEADING = 'PS_Article_AcknowlegedmentsHeading';
-    const PS_ARTICLE_ACKNOWLEDGEMENTS = 'PS_Article_Acknowlegedments';
-    const PS_ARTICLE_REFERENCES_HEADING = 'PS_Article_ReferencesHeading';
-    const PS_ARTICLE_REFERENCES = 'PS_Article_References';
-    const PS_ARTICLE_TOPIC = 'PS_Article_Topic';
-    const PS_ARTICLE_CITATION = 'PS_Article_Citation';
-    const PS_ARTICLE_COPYRIGHT = 'PS_Article_Copyright';
-    const PS_COLOPHON_BOOK_TITLE = 'PS_Colophon_BookTitle';
-    const PS_COLOPHON_CONFERENCE_TITLE = 'PS_Colophon_ConferenceTitle';
-    const PS_COLOPHON_PUBLICATION_DATE = 'PS_Colophon_PublicationDate';
-    const PS_COLOPHON_EDITOR_HEADING = 'PS_Colophon_EditorHeading';
-    const PS_COLOPHON_EDITOR = 'PS_Colophon_Editor';
-    const PS_COLOPHON_PUBLISHER_HEADING = 'PS_Colophon_PublisherHeading';
-    const PS_COLOPHON_PUBLISHER = 'PS_Colophon_Publisher';
-    const PS_COLOPHON_COPYRIGHT = 'PS_Colophon_Copyright';
+    public const PS_TITLEPAGE_BOOK_TITLE = 'PS_TitlePage_BookTitle';
+    public const PS_TITLEPAGE_BOOK_DOI = 'PS_TitlePage_BookDOI';
+    public const PS_TITLEPAGE_CONFERENCE_TITLE = 'PS_TitlePage_ConferenceTitle';
+    public const PS_HEADER = 'PS_Header';
+    public const PS_FOOTER = 'PS_Footer';
+    public const PS_TOC_TITLE = 'PS_TOC_Title';
+    public const PS_ARTICLE_TITLE = 'PS_Article_Title';
+    public const PS_ARTICLE_AUTHOR = 'PS_Article_Author';
+    public const PS_ARTICLE_AFFILIATION = 'PS_Article_Affiliation';
+    public const PS_ARTICLE_EMAIL = 'PS_Article_Email';
+    public const PS_ARTICLE_DOI = 'PS_Article_DOI';
+    public const PS_ARTICLE_ABSTRACT = 'PS_Article_Abstract';
+    public const PS_ARTICLE_ABSTRACT_FOLLOW = 'PS_Article_AbstractFollow';
+    public const PS_ARTICLE_FIGURE = 'PS_Article_Figure';
+    public const PS_ARTICLE_FIGURE_CAPTION = 'PS_Article_FigureCaption';
+    public const PS_ARTICLE_ACKNOWLEDGEMENTS_HEADING = 'PS_Article_AcknowlegedmentsHeading';
+    public const PS_ARTICLE_ACKNOWLEDGEMENTS = 'PS_Article_Acknowlegedments';
+    public const PS_ARTICLE_REFERENCES_HEADING = 'PS_Article_ReferencesHeading';
+    public const PS_ARTICLE_REFERENCES = 'PS_Article_References';
+    public const PS_ARTICLE_TOPIC = 'PS_Article_Topic';
+    public const PS_ARTICLE_CITATION = 'PS_Article_Citation';
+    public const PS_ARTICLE_COPYRIGHT = 'PS_Article_Copyright';
+    public const PS_COLOPHON_BOOK_TITLE = 'PS_Colophon_BookTitle';
+    public const PS_COLOPHON_CONFERENCE_TITLE = 'PS_Colophon_ConferenceTitle';
+    public const PS_COLOPHON_PUBLICATION_DATE = 'PS_Colophon_PublicationDate';
+    public const PS_COLOPHON_EDITOR_HEADING = 'PS_Colophon_EditorHeading';
+    public const PS_COLOPHON_EDITOR = 'PS_Colophon_Editor';
+    public const PS_COLOPHON_PUBLISHER_HEADING = 'PS_Colophon_PublisherHeading';
+    public const PS_COLOPHON_PUBLISHER = 'PS_Colophon_Publisher';
+    public const PS_COLOPHON_COPYRIGHT = 'PS_Colophon_Copyright';
 
     /**
      * abstracts.
@@ -212,23 +212,23 @@ class AbstractsWriter
     {
         $this->mAbstracts = json_decode($ajson, true);
         if (null === $this->mAbstracts) {
-            die('Fatal Error: failed to decode abstracts json data'.PHP_EOL);
+            exit('Fatal Error: failed to decode abstracts json data'.PHP_EOL);
         }
         $this->mConference = json_decode($cjson, true);
         if (null === $this->mConference) {
-            die('Fatal Error: failed to decode conference json data'.PHP_EOL);
+            exit('Fatal Error: failed to decode conference json data'.PHP_EOL);
         }
         $bjsonPath = dirname(__DIR__).'/config/conference/'.$this->mConference['short'].'.json';
         if (!file_exists($bjsonPath)) {
             $bjsonPath = dirname(__DIR__).'/config/conference/default.json';
             if (!file_exists($bjsonPath)) {
-                die('Fatal Error: book json file not found: '.$bjsonPath.PHP_EOL);
+                exit('Fatal Error: book json file not found: '.$bjsonPath.PHP_EOL);
             }
         }
         $bjson = file_get_contents($bjsonPath);
         $this->mBook = json_decode($bjson, true);
         if (null === $this->mBook) {
-            die('Fatal Error: failed to decode book json data'.PHP_EOL);
+            exit('Fatal Error: failed to decode book json data'.PHP_EOL);
         }
         $this->mImagesDir = $imagesDir;
         $this->mTexvc = new TexvcCommand($imagesDir);
@@ -258,7 +258,7 @@ class AbstractsWriter
         $numArticles = 0;
         $sessionTypeLast = '';
         foreach ($this->mAbstracts as $abstract) {
-            if ($abstract['state'] !== 'Accepted') {
+            if ('Accepted' !== $abstract['state']) {
                 continue;
             }
             ++$numArticles;
@@ -951,7 +951,7 @@ class AbstractsWriter
         $run = $section->addTextRun(self::PS_ARTICLE_AUTHOR);
         foreach ($abstract['authors'] as $authorIdx => $author) {
             if ($authorIdx !== $author['position']) {
-                die('Fatal Error: "authors:position" is not sorted (uuid:'.$author['uuid'].')'.PHP_EOL);
+                exit('Fatal Error: "authors:position" is not sorted (uuid:'.$author['uuid'].')'.PHP_EOL);
             }
             if (0 < $authorIdx) {
                 $run->addText(', ', self::FS_ARTICLE_AUTHOR);
@@ -992,10 +992,10 @@ class AbstractsWriter
         $run = $section->addTextRun(self::PS_ARTICLE_AFFILIATION);
         foreach ($abstract['affiliations'] as $affiliationNum => $affiliation) {
             if ($affiliationNum !== $affiliation['position']) {
-                die('Fatal Error: "affiliations:position" is not sorted (uuid:'.$affiliation['uuid'].')'.PHP_EOL);
+                exit('Fatal Error: "affiliations:position" is not sorted (uuid:'.$affiliation['uuid'].')'.PHP_EOL);
             }
             if (0 < $affiliationNum) {
-                //$run->addText(', ', self::FS_ARTICLE_AFFILIATION);
+                // $run->addText(', ', self::FS_ARTICLE_AFFILIATION);
                 $run->addTextBreak();
             }
             // affiliation number
@@ -1056,12 +1056,12 @@ class AbstractsWriter
             $this->_printInfo(' >> Figure: '.$figure['uuid']);
             $imagePath = $this->mImagesDir.'/'.$figure['uuid'];
             if (!file_exists($imagePath)) {
-                die('Fatal Error: "figures" image file not found (uuid:'.$figure['uuid'].')'.PHP_EOL);
+                exit('Fatal Error: "figures" image file not found (uuid:'.$figure['uuid'].')'.PHP_EOL);
             }
             $run = $section->addTextRun(self::PS_ARTICLE_FIGURE);
             $imagePath2 = dirname($imagePath).'/'.basename($imagePath, '.png').'_w.png';
             if (false === ImageConverter::convertToWhiteBackgroundPNG($imagePath, $imagePath2)) {
-                die('Fatal Error: failed to create white backgroup image file from ('.$imagePath.')'.PHP_EOL);
+                exit('Fatal Error: failed to create white backgroup image file from ('.$imagePath.')'.PHP_EOL);
             }
             list($width, $height) = $this->_getPreferedImageSize($imagePath2);
             $run->addImage($imagePath2, [
@@ -1159,7 +1159,7 @@ class AbstractsWriter
             $text .= $this->_sanitizeText($this->_getConferenceTitle()).' ';
             $text .= $this->_sanitizeText($this->_getBookSubTitle()).': ';
             $text .= $this->_sanitizeText($this->_getSessionTitle($abstract['abstrTypes'][0]['short'])).'-';
-            $text .= ($abstract['sortId'] & 0xffff).'. ';
+            $text .= ($abstract['sortId'] & 0xFFFF).'. ';
             $text .= self::HL_DOI.':'.$this->_sanitizeText($abstract['doi']);
         }
         $run->addText($text, self::FS_ARTICLE_CITATION);
@@ -1253,11 +1253,11 @@ class AbstractsWriter
                 $this->_printInfo(' >> Math: '.$mathStr);
                 $imagePath = $this->mTexvc->createImage($mathStr);
                 if ('' === $imagePath) {
-                    die('Fatal Error: failed to create tex image file from string ('.$mathStr.')'.PHP_EOL);
+                    exit('Fatal Error: failed to create tex image file from string ('.$mathStr.')'.PHP_EOL);
                 }
                 $imagePath2 = dirname($imagePath).'/'.basename($imagePath, '.png').'_w.png';
                 if (false === ImageConverter::convertToWhiteBackgroundPNG($imagePath, $imagePath2)) {
-                    die('Fatal Error: failed to create white backgroup image file from ('.$imagePath.')'.PHP_EOL);
+                    exit('Fatal Error: failed to create white backgroup image file from ('.$imagePath.')'.PHP_EOL);
                 }
                 $fontStyle = PhpWord\Style::getStyle($style);
                 $size = $fontStyle->getSize() ?: $this->mDefaultFontSize;

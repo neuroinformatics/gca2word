@@ -7,8 +7,8 @@ namespace NIJC;
  */
 class TexvcCommand
 {
-    const TEXVC = 'texvc';
-    const ENCODING = 'UTF-8';
+    public const TEXVC = 'texvc';
+    public const ENCODING = 'UTF-8';
 
     /**
      * texvc command.
@@ -67,7 +67,7 @@ class TexvcCommand
             'X', // ok, no html, with mathml
         ];
         $cmd = $this->mTexvc.' '.escapeshellarg($this->mTempDir->get()).' '.escapeshellarg($this->mImagesDir).' '.escapeshellarg($tex).' '.escapeshellarg($encoding);
-        $contents = `$cmd`;
+        $contents = shell_exec($cmd);
         if (0 == strlen($contents)) {
             // unknown error
             return '';

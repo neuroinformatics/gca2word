@@ -23,29 +23,29 @@ class ImageConverter
         }
         list($width, $height, $type) = $size;
         switch ($type) {
-        case IMAGETYPE_GIF:
-            $imSrc = @imagecreatefromgif($imagePath);
-            break;
-        case IMAGETYPE_JPEG:
-            $imSrc = @imagecreatefromjpeg($imagePath);
-            break;
-        case IMAGETYPE_PNG:
-            $imSrc = @imagecreatefrompng($imagePath);
-            break;
-        case IMAGETYPE_WBMP:
-            $imSrc = @imagecreatefromwbmp($imagePath);
-            break;
-        case IMAGETYPE_XPM:
-            $imSrc = @imagecreatefromxpm($imagePath);
-            break;
-        //case IMAGETYPE_WEBP:
+            case IMAGETYPE_GIF:
+                $imSrc = @imagecreatefromgif($imagePath);
+                break;
+            case IMAGETYPE_JPEG:
+                $imSrc = @imagecreatefromjpeg($imagePath);
+                break;
+            case IMAGETYPE_PNG:
+                $imSrc = @imagecreatefrompng($imagePath);
+                break;
+            case IMAGETYPE_WBMP:
+                $imSrc = @imagecreatefromwbmp($imagePath);
+                break;
+            case IMAGETYPE_XPM:
+                $imSrc = @imagecreatefromxpm($imagePath);
+                break;
+                // case IMAGETYPE_WEBP:
         //    $im = @imagecreatefromwebp($imagePath);
         //    break;
-        //case IMAGETYPE_BMP:
+                // case IMAGETYPE_BMP:
         //    $im = @imagecreatefrombmp($imagePath);
         //    break;
-        default:
-            return false;
+            default:
+                return false;
         }
         if (false === $imSrc) {
             return false;
