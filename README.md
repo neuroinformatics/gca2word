@@ -23,7 +23,7 @@ Options:
   -o OUTPUTFILE         output file name (default "abstract.docx")
 ```
 
-## dokcer
+## run using docker
 ```
 docker run -it --rm -v $(pwd)/data:/data orrisroot/gca2word -c [CONFERENCE] -u [EMAIL] -p -o /data/abstracts.docx
 ```
